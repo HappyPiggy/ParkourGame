@@ -1,0 +1,162 @@
+Initialize engine version: 5.4.1f1 (649f48bbbf0f)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 750 Ti (ID=0x1380)
+    Vendor:   NVIDIA
+    VRAM:     1992 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: G:\毕设\ParkourGame\Builds\test_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading G:\毕设\ParkourGame\Builds\test_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: G:\毕设\ParkourGame\Builds\test_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading G:\毕设\ParkourGame\Builds\test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: G:\毕设\ParkourGame\Builds\test_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading G:\毕设\ParkourGame\Builds\test_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: G:\毕设\ParkourGame\Builds\test_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading G:\毕设\ParkourGame\Builds\test_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.054 seconds
+Platform assembly: G:\毕设\ParkourGame\Builds\test_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: G:\毕设\ParkourGame\Builds\test_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.730589 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.944996 ms
+
+Unloading 249 unused Assets to reduce memory usage. Loaded Objects now: 1409.
+Total: 0.517539 ms (FindLiveObjects: 0.042609 ms CreateObjectMapping: 0.065003 ms MarkObjects: 0.318797 ms  DeleteObjects: 0.090507 ms)
+
+False
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+DIE
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+True
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+test
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+True
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+test
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+True
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+时间到了！
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+test
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+True
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+test
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+True
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+test
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+False
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+False
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+False
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+False
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+True
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+test
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+True
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+test
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+True
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+test
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+True
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+test
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+True
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+test
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+False
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+False
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+DIE
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+False
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.659921 ms
+
+Unloading 82 unused Assets to reduce memory usage. Loaded Objects now: 2658.
+Total: 1.377203 ms (FindLiveObjects: 0.078999 ms CreateObjectMapping: 0.101081 ms MarkObjects: 0.961056 ms  DeleteObjects: 0.235754 ms)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 6e0 -> priority: 1 

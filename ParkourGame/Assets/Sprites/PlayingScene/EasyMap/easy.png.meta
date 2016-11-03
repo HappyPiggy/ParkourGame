@@ -1,0 +1,681 @@
+fileFormatVersion: 2
+guid: f8cbef91bc3b25e4fb1208edb90fdc0a
+timeCreated: 1468387851
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: easy_0
+    21300002: easy_1
+    21300004: easy_2
+    21300006: easy_3
+    21300008: easy_4
+    21300010: easy_5
+    21300012: easy_6
+    21300014: easy_7
+    21300016: easy_8
+    21300018: easy_9
+    21300020: easy_10
+    21300022: easy_11
+    21300024: easy_12
+    21300026: easy_13
+    21300028: easy_14
+    21300030: easy_15
+    21300032: easy_16
+    21300034: easy_17
+    21300036: easy_18
+    21300038: easy_19
+    21300040: easy_20
+    21300042: easy_21
+    21300044: easy_22
+    21300046: easy_23
+    21300048: easy_24
+    21300050: easy_25
+    21300052: easy_26
+    21300054: easy_27
+    21300056: easy_28
+    21300058: easy_29
+    21300060: easy_30
+    21300062: easy_31
+    21300064: easy_32
+    21300066: easy_33
+    21300068: easy_34
+    21300070: easy_35
+    21300072: easy_36
+    21300074: easy_37
+    21300076: easy_38
+    21300078: easy_39
+    21300080: easy_40
+    21300082: easy_41
+    21300084: easy_42
+    21300086: easy_43
+    21300088: easy_44
+    21300090: easy_45
+    21300092: easy_46
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: easy_0
+      rect:
+        serializedVersion: 2
+        x: 3616
+        y: 725
+        width: 80
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_1
+      rect:
+        serializedVersion: 2
+        x: 3616
+        y: 608
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_2
+      rect:
+        serializedVersion: 2
+        x: 4268
+        y: 608
+        width: 75
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_3
+      rect:
+        serializedVersion: 2
+        x: 4413
+        y: 608
+        width: 75
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_4
+      rect:
+        serializedVersion: 2
+        x: 5524
+        y: 575
+        width: 75
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_5
+      rect:
+        serializedVersion: 2
+        x: 5670
+        y: 575
+        width: 75
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_6
+      rect:
+        serializedVersion: 2
+        x: 6738
+        y: 646
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_7
+      rect:
+        serializedVersion: 2
+        x: 6935
+        y: 650
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_8
+      rect:
+        serializedVersion: 2
+        x: 7465
+        y: 613
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_9
+      rect:
+        serializedVersion: 2
+        x: 7704
+        y: 613
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_10
+      rect:
+        serializedVersion: 2
+        x: 8857
+        y: 603
+        width: 75
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_11
+      rect:
+        serializedVersion: 2
+        x: 9012
+        y: 608
+        width: 75
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_12
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 538
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_13
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 538
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_14
+      rect:
+        serializedVersion: 2
+        x: 1385
+        y: 538
+        width: 80
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_15
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 538
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_16
+      rect:
+        serializedVersion: 2
+        x: 1685
+        y: 538
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_17
+      rect:
+        serializedVersion: 2
+        x: 1849
+        y: 538
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_18
+      rect:
+        serializedVersion: 2
+        x: 2543
+        y: 519
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_19
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 519
+        width: 80
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_20
+      rect:
+        serializedVersion: 2
+        x: 2848
+        y: 519
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_21
+      rect:
+        serializedVersion: 2
+        x: 3616
+        y: 500
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_22
+      rect:
+        serializedVersion: 2
+        x: 4155
+        y: 500
+        width: 75
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_23
+      rect:
+        serializedVersion: 2
+        x: 4530
+        y: 500
+        width: 75
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_24
+      rect:
+        serializedVersion: 2
+        x: 6373
+        y: 556
+        width: 75
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_25
+      rect:
+        serializedVersion: 2
+        x: 6537
+        y: 556
+        width: 75
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_26
+      rect:
+        serializedVersion: 2
+        x: 7315
+        y: 519
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_27
+      rect:
+        serializedVersion: 2
+        x: 7891
+        y: 524
+        width: 80
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_28
+      rect:
+        serializedVersion: 2
+        x: 2393
+        y: 467
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_29
+      rect:
+        serializedVersion: 2
+        x: 2543
+        y: 397
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_30
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 397
+        width: 80
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_31
+      rect:
+        serializedVersion: 2
+        x: 2848
+        y: 397
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_32
+      rect:
+        serializedVersion: 2
+        x: 3002
+        y: 467
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_33
+      rect:
+        serializedVersion: 2
+        x: 5412
+        y: 467
+        width: 75
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_34
+      rect:
+        serializedVersion: 2
+        x: 5787
+        y: 467
+        width: 75
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_35
+      rect:
+        serializedVersion: 2
+        x: 7587
+        y: 448
+        width: 75
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_36
+      rect:
+        serializedVersion: 2
+        x: 8857
+        y: 463
+        width: 75
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_37
+      rect:
+        serializedVersion: 2
+        x: 9012
+        y: 467
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: easy_38
+      rect:
+        serializedVersion: 2
+        x: 3546
+        y: 204
+        width: 253
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -22.333313, y: 18.444447}
+        - {x: -25.333313, y: 15.444447}
+        - {x: -27.333313, y: 10.444447}
+        - {x: -27.333313, y: -3.5555534}
+        - {x: -6.333313, y: -17.555553}
+        - {x: 11.666687, y: -17.555553}
+        - {x: 27.666687, y: -4.5555534}
+        - {x: 27.666687, y: 18.444447}
+    - name: easy_39
+      rect:
+        serializedVersion: 2
+        x: 3954
+        y: 120
+        width: 937
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -99.9444, y: 20.055557}
+        - {x: -99.9444, y: -12.944443}
+        - {x: -77.9444, y: -18.944443}
+        - {x: 95.0556, y: -18.944443}
+        - {x: 100.0556, y: -13.944443}
+        - {x: 100.0556, y: 20.055557}
+    - name: easy_40
+      rect:
+        serializedVersion: 2
+        x: 6373
+        y: 237
+        width: 253
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26.286987, y: -3.5277748}
+        - {x: -12.286987, y: -17.527775}
+        - {x: 11.713013, y: -17.527775}
+        - {x: 27.713013, y: -6.527775}
+        - {x: 27.713013, y: 18.472225}
+        - {x: -26.286987, y: 18.472225}
+    - name: easy_41
+      rect:
+        serializedVersion: 2
+        x: 6753
+        y: 293
+        width: 257
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 26.638916, y: 18.398151}
+        - {x: -12.361084, y: 18.398151}
+        - {x: -26.361084, y: 12.398151}
+        - {x: -26.361084, y: -6.6018486}
+        - {x: -6.361084, y: -17.601849}
+        - {x: 12.638916, y: -17.601849}
+        - {x: 21.638916, y: -10.601849}
+        - {x: 27.638916, y: -5.6018486}
+        - {x: 27.638916, y: 15.398151}
+    - name: easy_42
+      rect:
+        serializedVersion: 2
+        x: 7146
+        y: 118
+        width: 2316
+        height: 251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -244.66663, y: 27.129631}
+        - {x: -244.66663, y: -21.870369}
+        - {x: -236.66663, y: -26.870369}
+        - {x: 248.33337, y: -26.870369}
+        - {x: 248.33337, y: 13.129631}
+        - {x: 173.33337, y: 27.129631}
+    - name: easy_43
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 1849
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -197, y: 19.944445}
+        - {x: -197, y: -11.055555}
+        - {x: -193, y: -19.055555}
+        - {x: 197, y: -19.055555}
+        - {x: 197, y: 19.944445}
+    - name: easy_44
+      rect:
+        serializedVersion: 2
+        x: 2004
+        y: 31
+        width: 1397
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 149.2778, y: 20.101852}
+        - {x: -148.7222, y: 20.101852}
+        - {x: -148.7222, y: -18.898148}
+        - {x: 141.2778, y: -18.898148}
+        - {x: 150.2778, y: -13.898148}
+        - {x: 150.2778, y: 19.101852}
+    - name: easy_45
+      rect:
+        serializedVersion: 2
+        x: 5065
+        y: 31
+        width: 478
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -49.84253, y: 20.101852}
+        - {x: -49.84253, y: -14.898148}
+        - {x: -36.84253, y: -18.898148}
+        - {x: 45.15747, y: -18.898148}
+        - {x: 52.15747, y: -14.898148}
+        - {x: 52.15747, y: 20.101852}
+    - name: easy_46
+      rect:
+        serializedVersion: 2
+        x: 5749
+        y: 110
+        width: 478
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -49.175903, y: 19.925926}
+        - {x: -50.175903, y: 18.925926}
+        - {x: -50.175903, y: -9.074074}
+        - {x: -39.175903, y: -18.074074}
+        - {x: -30.175903, y: -19.074074}
+        - {x: 46.824097, y: -19.074074}
+        - {x: 51.824097, y: -16.074074}
+        - {x: 51.824097, y: 19.925926}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
