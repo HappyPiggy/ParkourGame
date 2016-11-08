@@ -54,6 +54,9 @@
      <Compile Include="Assets\Scrips\PlayingScene\Player\Boss.cs" />
      <Compile Include="Assets\Scrips\PlayingScene\Player\Player.cs" />
      <Compile Include="Assets\Scrips\PlayingScene\UI\TextDisplay.cs" />
+     <Compile Include="Assets\Scrips\PlayingScene2\BoundTrigger2.cs" />
+     <Compile Include="Assets\Scrips\PlayingScene2\CreateRoad2.cs" />
+     <Compile Include="Assets\Scrips\PlayingScene2\EnemyMove.cs" />
      <Compile Include="Assets\Scrips\PlayingScene2\GameController3.cs" />
      <Compile Include="Assets\Scrips\PlayingScene2\PlayerSwim.cs" />
      <Compile Include="Assets\Scrips\StartScene\StartScene.cs" />

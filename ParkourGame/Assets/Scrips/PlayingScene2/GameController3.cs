@@ -6,6 +6,10 @@ using UnityEngine.UI;
 public class GameController3 : MonoBehaviour {
 
 
+
+
+    public GameObject[] Maps;
+    public float roadOffset;
     public PlayerSwim player;
     public GameObject relivePanel;
     public Text distanceText;
@@ -19,11 +23,14 @@ public class GameController3 : MonoBehaviour {
     private float distanceSpeed;
     private TextDisplay textDisplayer;
     private float Timer = 0;
+    private CreateRoad2 createRoader;
+
 
     void Start()
     {
         isPause = false;
         textDisplayer = new TextDisplay();
+        createRoader = new CreateRoad2();
         UpdateSpeed();
     }
 
@@ -106,7 +113,7 @@ public class GameController3 : MonoBehaviour {
        // relivePanel.SetActive(false);
         isPause = false;
         player.transform.position = new Vector3(player.transform.position.x, 2.5f, player.transform.position.z);
-        player.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 10, 0);
+        player.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 4, 0);
         player.isDead = false;
         Time.timeScale = 1;
 
@@ -133,5 +140,10 @@ public class GameController3 : MonoBehaviour {
     {
         SceneManager.LoadScene("PlayingScene2");
         Time.timeScale = 1;
+    }
+
+    public void RandomCreateRoad(Vector3 targetPos)
+    {
+        createRoader.CreateRandomRoad(Maps, targetPos, roadOffset);
     }
 }

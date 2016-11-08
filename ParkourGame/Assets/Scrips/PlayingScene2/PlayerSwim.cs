@@ -33,13 +33,19 @@ public class PlayerSwim : MonoBehaviour
                 Vector2 velocity = rb.velocity;
                 velocity.y = swimVelocity;
                 rb.velocity = velocity;
+               // print(velocity.y);
             }
          
         }
 
+
+        //放开游泳按键后 速度为0 使得惯性变小
         if (Input.GetKeyUp(KeyCode.Z))
         {
             isSwim = false;
+            Vector2 velocity = rb.velocity;
+            velocity.y = 0;
+            rb.velocity = velocity;
         }
 
         
@@ -50,11 +56,25 @@ public class PlayerSwim : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         
+        if(other.name=="Boundary")
+            return;
+
         if (other.name == "DeathTrigger")
         {
             Debug.Log("DIE");
             isDead = true;
             GameController3.Instance.GameOver();
         }
+
+
+
+        switch (other.tag)
+        {
+            case "Boom":
+                GameController3.Instance.GameOver();
+                break;
+
+        }
+        Destroy(other.gameObject);
     }
 }
