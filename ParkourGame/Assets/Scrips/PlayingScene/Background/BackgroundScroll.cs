@@ -6,11 +6,11 @@ public class BackgroundScroll : MonoBehaviour {
   //  public float scrollSpeed;
     private float tileSize;
     private Vector3 startPosition;
-    private float scrollSpeed;
+    public float scrollSpeed;
 
     void Start()
     {
-        scrollSpeed   = 5;
+       // scrollSpeed   = 5;
         tileSize      = 20;
         startPosition = transform.position;
     }
