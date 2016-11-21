@@ -30,9 +30,13 @@ public class Player : MonoBehaviour
 	private Animator animator;
 	private Rigidbody2D rigidbody2D;
 
-    private int currentKey;
-    private bool isTouch;
+    public int currentKey;
+    public bool isTouch;
+    private bool isSlider;
+    private bool isJump;
     private BoxCollider2D boxCollider;
+    private Vector2 currentColliderSize;
+    private Vector2 currentColliderOffset;
 
    
 
@@ -41,6 +45,8 @@ public class Player : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+	    isSlider = false;
+	    isJump = false;
         isTouch = false;
         startTimer = false;
         currentKey = 0;
@@ -49,8 +55,12 @@ public class Player : MonoBehaviour
         boxCollider=GetComponent<BoxCollider2D>();
 		onGround    = 1;
 		isDead      = false;
+        currentColliderOffset=new Vector2(boxCollider.offset.x,boxCollider.offset.y);
+        currentColliderSize=new Vector2(boxCollider.size.x,boxCollider.size.y);
        // attackTime = GameController2.Instance.bossTimeSlider.GetComponent<Slider>().maxValue;
       //  Debug.Log(attackTime);
+
+  
 	}
 
 	void Update()
@@ -70,7 +80,7 @@ public class Player : MonoBehaviour
 
 
 
-        //不知道为啥 bossRoadGenerate 自动变为true  貌似和别的地方不是一个变量
+    
         //在按对第1个键的时候就结束生成boss路 以免过长
         if (currentKey >= 1)
         {
@@ -136,25 +146,26 @@ public class Player : MonoBehaviour
     }
 
 
-  public  void OnLeftPress()
-    {
+  //public  void OnLeftPress()
+  //  {
+  //    print("test");
 
-        GameController2.Instance.playerKeys[currentKey] = 0;
-        isTouch                                         =true;
-    }
+  //      GameController2.Instance.playerKeys[currentKey] = 0;
+  //      isTouch                                         =true;
+  //  }
 
-  public void OnRightPress()
-    {
-        GameController2.Instance.playerKeys[currentKey] = 1;
-        isTouch                                         =true;
-    }
+  //public void OnRightPress()
+  //  {
+  //      GameController2.Instance.playerKeys[currentKey] = 1;
+  //      isTouch                                         =true;
+  //  }
 
 
 	public void PlayerMovement()
 	{
-		if (Input.GetKeyDown(KeyCode.Z) && onGround <= jumpTimes && !GameController2.Instance.isPause)
+		if (Input.GetKeyDown(KeyCode.Z) && onGround <= jumpTimes && !GameController2.Instance.isPause && !isJump)
 		{
-
+		    isSlider = true;
 			Vector2 velocity = rigidbody2D.velocity;
 			velocity.y = jumpVelocity;
 			rigidbody2D.velocity = velocity;
@@ -166,22 +177,30 @@ public class Player : MonoBehaviour
         }
        
         
-        if (Input.GetKeyDown(KeyCode.X) && !GameController2.Instance.isPause)
+        if (Input.GetKeyDown(KeyCode.X) && !GameController2.Instance.isPause && !isSlider)
         {
         //蹲的动画
             animator.SetBool("Slider",true);
           //  transform.Rotate(new Vector3(0, 0, 90));
             boxCollider.size = new Vector2(5,1.6f);
-            boxCollider.offset = new Vector2(0, -0.7f);
-        
+            boxCollider.offset = new Vector2(0, -0.4f);
+
+            //蹲的时候不能起跳
+            isJump = true;
+
         }
 
         if (Input.GetKeyUp(KeyCode.X)) {
             animator.SetBool("Slider", false);
             //transform.Rotate(new Vector3(0, 0, 0));
-            boxCollider.size = new Vector2(1.23f, 3.25f);
-            boxCollider.offset = new Vector2(0.92f,0);
-        
+            //boxCollider.size = new Vector2(1.23f, 3.25f);
+            //boxCollider.offset = new Vector2(0.92f,0);
+
+            boxCollider.size = currentColliderSize;
+            boxCollider.offset = currentColliderOffset;
+
+            isJump = false;
+
         }
 	}
 
@@ -192,6 +211,8 @@ public class Player : MonoBehaviour
 		{
 			onGround = 1;
 		}
+        //碰到地时才可以下蹲
+	    isSlider = false;
 
 	}
 

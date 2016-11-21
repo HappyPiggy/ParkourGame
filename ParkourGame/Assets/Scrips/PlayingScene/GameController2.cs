@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameController2 : MonoBehaviour {
 
     public GameObject[] Maps;
+    public GameObject[] Characters;
+    public Transform playerPos;
     public float roadOffset;
 
     public int bgSpeedAcceration;//默认是8
@@ -17,7 +19,7 @@ public class GameController2 : MonoBehaviour {
     public Text distanceText;
     public GameObject relivePanel;
     public GameObject directionButtons;
-    public Player player;
+    
     public Boss boss;
    // public GameObject bossobj;
    public GameObject bossTimeSlider;    
@@ -41,8 +43,8 @@ public class GameController2 : MonoBehaviour {
     public  bool bossRoadGenerate;
     [HideInInspector]
     public GameObject tempBossObj;
-
-   
+     [HideInInspector]
+    public Player player;
 
     private int score;
     private float distance;
@@ -52,6 +54,8 @@ public class GameController2 : MonoBehaviour {
     private bool isRepeat;
     private int NextBossPos;
     private bool bossIsAppear;
+    private int characterIndex;
+    private GameObject currentPlayer;
 
 
     
@@ -59,6 +63,8 @@ public class GameController2 : MonoBehaviour {
 
     private CreateRoad createRoader;
     private TextDisplay textDisplayer;
+
+    private string playerIndex;
 
     #region 单例模式
     private static GameController2 _instance;
@@ -90,6 +96,22 @@ public class GameController2 : MonoBehaviour {
         createRoader   = new CreateRoad();
         textDisplayer  = new TextDisplay();
         Time.timeScale = 1;
+
+       
+    //   print(playerIndex);
+
+        
+        //确定选择的角色
+         characterIndex = PlayerPrefs.GetInt("playerIndex", 0);
+
+         // characterIndex = 3;
+
+        //生成主角
+       currentPlayer= Instantiate(Characters[characterIndex], playerPos.transform.position, playerPos.transform.rotation) as GameObject;
+
+
+        //生成主角脚本
+        player = currentPlayer.GetComponent<Player>();
         bossTimeSlider.GetComponent<Slider>().maxValue = player.attackTime;
         bossTimeSlider.GetComponent<Slider>().value = player.attackTime;
         UpdateSpeed();
@@ -150,14 +172,22 @@ public class GameController2 : MonoBehaviour {
         relivePanel.SetActive(true);
         isPause = true;
         player.startTimer = false;
+      //  Destroy(currentPlayer);
         Time.timeScale = 0;
     }
 
     public void OnReliveButtonPress()
     {
+       
+        //currentPlayer =Instantiate(Characters[characterIndex], playerPos.transform.position, playerPos.transform.rotation) as GameObject;
+        //player = currentPlayer.GetComponent<Player>();
+        currentPlayer.transform.position = new Vector3(playerPos.transform.position.x,playerPos.transform.position.y+3,0);
+        currentPlayer.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 10, 0);
+      //  print(playerPos.transform.position);
         player.Timer = 0;
         isPause = false;
-        player.transform.position = new Vector3(player.transform.position.x, 5, player.transform.position.z);
+       // player.transform.position = new Vector3(player.transform.position.x, 5, player.transform.position.z);
+       // Instantiate(Characters[characterIndex], playerPos.transform.position, playerPos.transform.rotation);
         player.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 10, 0);
         player.isDead = false;
         player.onGround = 1;
@@ -229,6 +259,20 @@ public class GameController2 : MonoBehaviour {
 
     #region Boss相关
 
+
+    public void OnLeftPress()
+    {
+       // print("test");
+
+       playerKeys[player.currentKey] = 0;
+       player.isTouch = true;
+    }
+
+    public void OnRightPress()
+    {
+        playerKeys[player.currentKey] = 1;
+        player.isTouch = true;
+    }
 
     public void SetRoadGenerate(bool bl)
     {

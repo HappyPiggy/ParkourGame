@@ -22,15 +22,132 @@ public class GameController : MonoBehaviour
     public GameObject  CenterAndDown;
     public GameObject ReadyPanel1;
 
+
+    public GameObject[] CharactersList;
+    public GameObject headIcon;
+
+    private string playerIndex="2";
+    private int LEVEL=0;
+
     private static GameController _instance;
 
     public static GameController Instance
     {
         get { return _instance; }
     }
-    
+
+
+    void Start()
+    {
+        playerIndex = PlayerPrefs.GetInt("playerIndex", 0).ToString();
+    }
 
     #region UI界面设置
+
+
+    public void RefreshCharacterSelected()
+    {
+        int selectd = PlayerPrefs.GetInt("playerIndex", 0);
+
+        CharactersList[selectd].transform.Find("0").gameObject.SetActive(false);
+        CharactersList[selectd].transform.Find("1").gameObject.SetActive(true);
+
+        for (int i = 0; i < 4; i++)
+        {
+            if (i == selectd)
+                continue;
+            CharactersList[i].transform.Find("0").gameObject.SetActive(true);
+            CharactersList[i].transform.Find("1").gameObject.SetActive(false);
+        }
+
+    }
+
+   public void OnCharacterPanelCloseBtnClick()
+    {
+       switch (int.Parse(playerIndex))
+       {
+           case 0:
+               headIcon.GetComponent<Image>().overrideSprite = Resources.Load("gui", typeof(Sprite)) as Sprite;
+               break;
+           case 1:
+               headIcon.GetComponent<Image>().overrideSprite = Resources.Load("hu", typeof(Sprite)) as Sprite;
+               break;
+           case 2:
+               headIcon.GetComponent<Image>().overrideSprite = Resources.Load("tu", typeof(Sprite)) as Sprite;
+               break;
+           case 3:
+               headIcon.GetComponent<Image>().overrideSprite = Resources.Load("ya", typeof(Sprite)) as Sprite;
+               break;
+
+       }
+    }
+
+
+    public void OnTortoiseBtnClick()
+    {
+        //传值使用 记录所选择
+        int currentIndex = 0;
+        playerIndex = currentIndex.ToString();
+        CharactersList[currentIndex].transform.Find("0").gameObject.SetActive(false);
+        CharactersList[currentIndex].transform.Find("1").gameObject.SetActive(true);
+
+        for (int i = 0; i < 4; i++)
+        {
+            if(i==currentIndex)
+                continue;
+            CharactersList[i].transform.Find("0").gameObject.SetActive(true);
+            CharactersList[i].transform.Find("1").gameObject.SetActive(false);
+        }
+    }
+
+    public void OnFoxBtnClick()
+    {
+        int currentIndex = 1;
+        playerIndex = currentIndex.ToString();
+        CharactersList[currentIndex].transform.Find("0").gameObject.SetActive(false);
+        CharactersList[currentIndex].transform.Find("1").gameObject.SetActive(true);
+
+        for (int i = 0; i < 4; i++)
+        {
+            if (i == currentIndex)
+                continue;
+            CharactersList[i].transform.Find("0").gameObject.SetActive(true);
+            CharactersList[i].transform.Find("1").gameObject.SetActive(false);
+        }
+    }
+
+    public void OnRabbitBtnClick()
+    {
+        int currentIndex = 2;
+        playerIndex = currentIndex.ToString();
+        CharactersList[currentIndex].transform.Find("0").gameObject.SetActive(false);
+        CharactersList[currentIndex].transform.Find("1").gameObject.SetActive(true);
+
+        for (int i = 0; i < 4; i++)
+        {
+            if (i == currentIndex)
+                continue;
+            CharactersList[i].transform.Find("0").gameObject.SetActive(true);
+            CharactersList[i].transform.Find("1").gameObject.SetActive(false);
+        }
+    }
+
+    public void OnDuckBtnClick()
+    {
+        int currentIndex = 3;
+        playerIndex = currentIndex.ToString();
+        CharactersList[currentIndex].transform.Find("0").gameObject.SetActive(false);
+        CharactersList[currentIndex].transform.Find("1").gameObject.SetActive(true);
+
+        for (int i = 0; i < 4; i++)
+        {
+            if (i == currentIndex)
+                continue;
+            CharactersList[i].transform.Find("0").gameObject.SetActive(true);
+            CharactersList[i].transform.Find("1").gameObject.SetActive(false);
+        }
+    }
+
     public void DailyPanel()
     {
         dailyMission.SetActive(true);
@@ -99,6 +216,10 @@ public class GameController : MonoBehaviour
         MainPanels.SetActive(false);
 
     }
+
+
+
+
     #endregion
 
     #region UI数据交互
@@ -124,10 +245,41 @@ public class GameController : MonoBehaviour
     }
 
 
+    public void ClassicsMode()
+    {
+        LEVEL = 0;
+    }
+
+    public void SkyMode()
+    {
+        LEVEL = 1;
+    }
+
+    public void SeaMode()
+    {
+        LEVEL = 2;
+    }
+
     public void StartGame()
     {
-        SceneManager.LoadScene("PlayingScene");
-        
+
+        PlayerPrefs.SetInt("playerIndex", int.Parse(playerIndex));
+
+        switch (LEVEL)
+        {
+            case  0:
+                SceneManager.LoadScene("PlayingScene");
+                break;
+            case 1:
+                SceneManager.LoadScene("PlayingScene2");
+                break;
+            case 2:
+                SceneManager.LoadScene("PlayingScene3");
+                break;
+        }
+       
+
+       
         
     }
 
