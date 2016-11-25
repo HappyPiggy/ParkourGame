@@ -54,11 +54,13 @@
      <Compile Include="Assets\Scrips\PlayingScene\Player\Boss.cs" />
      <Compile Include="Assets\Scrips\PlayingScene\Player\Player.cs" />
      <Compile Include="Assets\Scrips\PlayingScene\UI\TextDisplay.cs" />
-     <Compile Include="Assets\Scrips\PlayingScene2\BoundTrigger2.cs" />
-     <Compile Include="Assets\Scrips\PlayingScene2\CreateRoad2.cs" />
-     <Compile Include="Assets\Scrips\PlayingScene2\EnemyMove.cs" />
-     <Compile Include="Assets\Scrips\PlayingScene2\GameController3.cs" />
-     <Compile Include="Assets\Scrips\PlayingScene2\PlayerSwim.cs" />
+     <Compile Include="Assets\Scrips\PlayingScene3\BoundTrigger2.cs" />
+     <Compile Include="Assets\Scrips\PlayingScene3\Bubble.cs" />
+     <Compile Include="Assets\Scrips\PlayingScene3\BubbleController.cs" />
+     <Compile Include="Assets\Scrips\PlayingScene3\CreateRoad2.cs" />
+     <Compile Include="Assets\Scrips\PlayingScene3\EnemyMove.cs" />
+     <Compile Include="Assets\Scrips\PlayingScene3\GameController3.cs" />
+     <Compile Include="Assets\Scrips\PlayingScene3\PlayerSwim.cs" />
      <Compile Include="Assets\Scrips\StartScene\StartScene.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

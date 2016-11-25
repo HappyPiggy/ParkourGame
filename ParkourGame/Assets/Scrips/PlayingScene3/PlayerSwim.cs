@@ -55,8 +55,10 @@ public class PlayerSwim : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
-        if(other.name=="Boundary")
+
+    
+
+        if(other.name=="Boundary" ||other.CompareTag("Bubble"))
             return;
 
         if (other.name == "DeathTrigger")
