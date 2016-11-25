@@ -54,6 +54,9 @@
      <Compile Include="Assets\Scrips\PlayingScene\Player\Boss.cs" />
      <Compile Include="Assets\Scrips\PlayingScene\Player\Player.cs" />
      <Compile Include="Assets\Scrips\PlayingScene\UI\TextDisplay.cs" />
+     <Compile Include="Assets\Scrips\PlayingScene2\BoundTrigger3.cs" />
+     <Compile Include="Assets\Scrips\PlayingScene2\GameController4.cs" />
+     <Compile Include="Assets\Scrips\PlayingScene2\PlayerFly.cs" />
      <Compile Include="Assets\Scrips\PlayingScene3\BoundTrigger2.cs" />
      <Compile Include="Assets\Scrips\PlayingScene3\Bubble.cs" />
      <Compile Include="Assets\Scrips\PlayingScene3\BubbleController.cs" />

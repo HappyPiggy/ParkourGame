@@ -6,6 +6,7 @@ public class PlayerSwim : MonoBehaviour
 {
 
     public float swimVelocity;
+    public GoodsReward goodsReward;
 
 
     [HideInInspector]
@@ -56,7 +57,7 @@ public class PlayerSwim : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-    
+       
 
         if(other.name=="Boundary" ||other.CompareTag("Bubble"))
             return;
@@ -66,6 +67,7 @@ public class PlayerSwim : MonoBehaviour
             Debug.Log("DIE");
             isDead = true;
             GameController3.Instance.GameOver();
+            return;
         }
 
 
@@ -74,6 +76,15 @@ public class PlayerSwim : MonoBehaviour
         {
             case "Boom":
                 GameController3.Instance.GameOver();
+                break;
+            case "Coin1":
+                GameController3.Instance.ChangeScore(goodsReward.coin1);
+                break;
+            case "Coin2":
+                GameController3.Instance.ChangeScore(goodsReward.coin2);
+                break;
+            case "Coin3":
+                GameController3.Instance.ChangeScore(goodsReward.coin3);
                 break;
 
         }

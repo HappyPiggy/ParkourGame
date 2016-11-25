@@ -162,7 +162,7 @@ public class GameController2 : MonoBehaviour {
 
     public void GameOver()
     {
-        player.isDead = true;
+     
         directionButtons.SetActive(false);
         Invoke("WaitGameOver", 0.5f);
     }

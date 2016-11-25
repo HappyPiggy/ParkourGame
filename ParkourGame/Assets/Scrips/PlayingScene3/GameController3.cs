@@ -12,6 +12,7 @@ public class GameController3 : MonoBehaviour {
     public GameObject[] Characters;
     public float roadOffset;
     public GameObject relivePanel;
+    public Text scoreText;
     public Text distanceText;
     public int bgSpeedAcceration;//默认是8
     public float defaultSpeed; //默认是2
@@ -28,6 +29,7 @@ public class GameController3 : MonoBehaviour {
     private int characterIndex;
     private GameObject currentPlayer;
     private PlayerSwim player;
+    private int score;
 
 
 
@@ -74,6 +76,14 @@ public class GameController3 : MonoBehaviour {
         }
     }
 
+
+    public void ChangeScore(int changeScore)
+    {
+        score += changeScore;
+        textDisplayer.UpdateScore(scoreText, score);
+    }
+
+
     private void AutoChangeSpeed()
     {
         Timer += Time.deltaTime;
@@ -108,8 +118,6 @@ public class GameController3 : MonoBehaviour {
 
     public void GameOver()
     {
-
-        player.isDead = true;
         Invoke("WaitGameOver", 0.5f);
     }
 
@@ -154,7 +162,7 @@ public class GameController3 : MonoBehaviour {
 
     public void RestartGame()
     {
-        SceneManager.LoadScene("PlayingScene2");
+        SceneManager.LoadScene("PlayingScene3");
         Time.timeScale = 1;
     }
 
