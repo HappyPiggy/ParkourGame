@@ -65,6 +65,7 @@
      <Compile Include="Assets\Scrips\PlayingScene3\GameController3.cs" />
      <Compile Include="Assets\Scrips\PlayingScene3\PlayerSwim.cs" />
      <Compile Include="Assets\Scrips\StartScene\StartScene.cs" />
+     <Compile Include="Assets\Scrips\result.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

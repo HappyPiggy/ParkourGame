@@ -15,6 +15,12 @@ public class GameController4 : MonoBehaviour {
     public Text scoreText;
     public GameObject relivePanel;
     public Transform playerPos;
+    public Text resDistance;
+    public Text resScore;
+
+    public Text resCoin;
+    public Text resDia;
+    public bool isRecord = true;
 
     private TextDisplay textDisplayer;
     private CreateRoad2 createRoader;
@@ -69,6 +75,24 @@ public class GameController4 : MonoBehaviour {
         {
             ChangeDistace();
             AutoChangeSpeed();
+        }
+
+        GetRecord();
+    }
+
+
+    private void GetRecord()
+    {
+        if (player.isDead && isRecord)
+        {
+
+            resDistance.text = distance.ToString();
+            resScore.text = score.ToString();
+
+            resCoin.text = (score * 3f + distance * 2f).ToString();
+            resDia.text = Random.Range(1, 10).ToString();
+
+            isRecord = false;
         }
     }
 
@@ -158,7 +182,7 @@ public class GameController4 : MonoBehaviour {
         // relivePanel.SetActive(false);
         currentPlayer.transform.position = new Vector3(playerPos.transform.position.x, playerPos.transform.position.y, 0);
         currentPlayer.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 10, 0);
-
+        isRecord = true;
         isPause = false;
         //player.transform.position = new Vector3(player.transform.position.x, 2.5f, player.transform.position.z);
         //player.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 4, 0);

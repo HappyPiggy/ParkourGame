@@ -18,6 +18,14 @@ public class GameController3 : MonoBehaviour {
     public float defaultSpeed; //默认是2
     public Transform playerPos;
 
+    public Text resDistance;
+    public Text resScore;
+
+    public Text resCoin;
+    public Text resDia;
+
+    public bool isRecord = true;
+
     [HideInInspector]
     public bool isPause;
 
@@ -74,8 +82,24 @@ public class GameController3 : MonoBehaviour {
             ChangeDistace();
             AutoChangeSpeed();
         }
+
+        GetRecord();
     }
 
+    private void GetRecord()
+    {
+        if (player.isDead && isRecord)
+        {
+
+            resDistance.text = distance.ToString();
+            resScore.text = score.ToString();
+
+            resCoin.text = (score * 3f + distance * 2f).ToString();
+            resDia.text = Random.Range(1, 10).ToString();
+
+            isRecord = false;
+        }
+    }
 
     public void ChangeScore(int changeScore)
     {
@@ -134,7 +158,7 @@ public class GameController3 : MonoBehaviour {
        // relivePanel.SetActive(false);
         currentPlayer.transform.position = new Vector3(playerPos.transform.position.x, playerPos.transform.position.y , 0);
         currentPlayer.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 1, 0);
-
+        isRecord = true;
         isPause = false;
         //player.transform.position = new Vector3(player.transform.position.x, 2.5f, player.transform.position.z);
         //player.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 4, 0);

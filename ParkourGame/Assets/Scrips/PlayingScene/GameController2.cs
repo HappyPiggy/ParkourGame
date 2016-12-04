@@ -46,6 +46,15 @@ public class GameController2 : MonoBehaviour {
      [HideInInspector]
     public Player player;
 
+
+     public Text resDistance;
+     public Text resScore;
+
+     public Text resCoin;
+     public Text resDia;
+
+     public bool isRecord = true;
+
     private int score;
     private float distance;
     private float Timer = 0;
@@ -130,9 +139,25 @@ public class GameController2 : MonoBehaviour {
             AutoChangeSpeed();
         }
 
-    //  Debug.Log("实际值"+bossRoadGenerate);
 
+        //获得奖励结果
+        GetRecord();
         
+    }
+
+    private void GetRecord()
+    {
+        if (player.isDead && isRecord)
+        {
+
+            resDistance.text = distance.ToString();
+            resScore.text =score.ToString();
+
+            resCoin.text = (score*3f + distance*2f).ToString();
+            resDia.text = Random.Range(1, 10).ToString();
+
+            isRecord = false;
+        }
     }
 
     #region 按钮事件
@@ -185,6 +210,7 @@ public class GameController2 : MonoBehaviour {
         currentPlayer.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 10, 0);
       //  print(playerPos.transform.position);
         player.Timer = 0;
+        isRecord = true;
         isPause = false;
        // player.transform.position = new Vector3(player.transform.position.x, 5, player.transform.position.z);
        // Instantiate(Characters[characterIndex], playerPos.transform.position, playerPos.transform.rotation);
