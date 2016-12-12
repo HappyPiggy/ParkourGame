@@ -113,7 +113,7 @@ public class GameController2 : MonoBehaviour {
         //确定选择的角色
          characterIndex = PlayerPrefs.GetInt("playerIndex", 0);
 
-         // characterIndex = 3;
+        //  characterIndex = 3;
 
         //生成主角
        currentPlayer= Instantiate(Characters[characterIndex], playerPos.transform.position, playerPos.transform.rotation) as GameObject;

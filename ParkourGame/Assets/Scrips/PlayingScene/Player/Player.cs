@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
     private BoxCollider2D boxCollider;
     private Vector2 currentColliderSize;
     private Vector2 currentColliderOffset;
+    private GameObject runEffect;
 
    
 
@@ -57,10 +58,12 @@ public class Player : MonoBehaviour
 		isDead      = false;
         currentColliderOffset=new Vector2(boxCollider.offset.x,boxCollider.offset.y);
         currentColliderSize=new Vector2(boxCollider.size.x,boxCollider.size.y);
-       // attackTime = GameController2.Instance.bossTimeSlider.GetComponent<Slider>().maxValue;
-      //  Debug.Log(attackTime);
 
-  
+        runEffect = transform.FindChild("EffectPos").gameObject;
+	    // attackTime = GameController2.Instance.bossTimeSlider.GetComponent<Slider>().maxValue;
+	    //  Debug.Log(attackTime);
+
+
 	}
 
 	void Update()
@@ -165,6 +168,9 @@ public class Player : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Z) && onGround <= jumpTimes && !GameController2.Instance.isPause && !isJump)
 		{
+            //特效消除
+            runEffect.SetActive(false);
+
 		    isSlider = true;
 			Vector2 velocity = rigidbody2D.velocity;
 			velocity.y = jumpVelocity;
@@ -188,9 +194,15 @@ public class Player : MonoBehaviour
             //蹲的时候不能起跳
             isJump = true;
 
+            //蹲的特效要改变位置
+            runEffect.SetActive(false);
+
         }
 
         if (Input.GetKeyUp(KeyCode.X)) {
+
+
+
             animator.SetBool("Slider", false);
             //transform.Rotate(new Vector3(0, 0, 0));
             //boxCollider.size = new Vector2(1.23f, 3.25f);
@@ -200,6 +212,8 @@ public class Player : MonoBehaviour
             boxCollider.offset = currentColliderOffset;
 
             isJump = false;
+
+            runEffect.SetActive(true);
 
         }
 	}
@@ -214,7 +228,13 @@ public class Player : MonoBehaviour
         //碰到地时才可以下蹲
 	    isSlider = false;
 
+        if(!isJump)
+            runEffect.SetActive(true);
+
 	}
+
+
+
 
 
 
