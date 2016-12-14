@@ -25,11 +25,13 @@ public class GameController : MonoBehaviour
 
     public GameObject[] CharactersList;
     public GameObject headIcon;
+    public AudioClip click;
 
     private string playerIndex="2";
     private int LEVEL=0;
 
     private static GameController _instance;
+    private int isSound = 1;
 
     public static GameController Instance
     {
@@ -40,6 +42,41 @@ public class GameController : MonoBehaviour
     void Start()
     {
         playerIndex = PlayerPrefs.GetInt("playerIndex", 0).ToString();
+        isSound=PlayerPrefs.GetInt("isSound", 1);
+
+        //判断音乐有没有打开
+        if (isSound == 1)
+        {
+            GameObject.Find("Main Camera").GetComponent<AudioListener>().enabled = true;
+        }
+        else
+        {
+           
+            GameObject.Find("Main Camera").GetComponent<AudioListener>().enabled = false;
+        }
+    }
+
+
+
+
+    public void SoundSetting()
+    {
+
+
+        if (GameObject.Find("bgx").GetComponent<Toggle>().isOn)
+        {
+           //打开音效
+            
+            GameObject.Find("Main Camera").GetComponent<AudioListener>().enabled = true;
+            PlayerPrefs.SetInt("isSound", 1);
+        }
+        else
+        {
+            //关闭音效
+            GameObject.Find("Main Camera").GetComponent<AudioListener>().enabled = false;
+            PlayerPrefs.SetInt("isSound", 0);
+        }
+       
     }
 
     #region UI界面设置
@@ -47,7 +84,11 @@ public class GameController : MonoBehaviour
 
     public void RefreshCharacterSelected()
     {
+
+        AudioController.Instance.PlayEfx(click);
+       
         int selectd = PlayerPrefs.GetInt("playerIndex", 0);
+        print(selectd);
 
         CharactersList[selectd].transform.Find("0").gameObject.SetActive(false);
         CharactersList[selectd].transform.Find("1").gameObject.SetActive(true);
@@ -64,6 +105,7 @@ public class GameController : MonoBehaviour
 
    public void OnCharacterPanelCloseBtnClick()
     {
+        AudioController.Instance.PlayEfx(click);
        switch (int.Parse(playerIndex))
        {
            case 0:
@@ -85,6 +127,8 @@ public class GameController : MonoBehaviour
 
     public void OnTortoiseBtnClick()
     {
+        AudioController.Instance.PlayEfx(click);
+
         //传值使用 记录所选择
         int currentIndex = 0;
         playerIndex = currentIndex.ToString();
@@ -98,10 +142,13 @@ public class GameController : MonoBehaviour
             CharactersList[i].transform.Find("0").gameObject.SetActive(true);
             CharactersList[i].transform.Find("1").gameObject.SetActive(false);
         }
+        PlayerPrefs.SetInt("playerIndex", currentIndex);
     }
 
     public void OnFoxBtnClick()
     {
+        AudioController.Instance.PlayEfx(click);
+
         int currentIndex = 1;
         playerIndex = currentIndex.ToString();
         CharactersList[currentIndex].transform.Find("0").gameObject.SetActive(false);
@@ -114,10 +161,13 @@ public class GameController : MonoBehaviour
             CharactersList[i].transform.Find("0").gameObject.SetActive(true);
             CharactersList[i].transform.Find("1").gameObject.SetActive(false);
         }
+        PlayerPrefs.SetInt("playerIndex", currentIndex);
     }
 
     public void OnRabbitBtnClick()
     {
+        AudioController.Instance.PlayEfx(click);
+
         int currentIndex = 2;
         playerIndex = currentIndex.ToString();
         CharactersList[currentIndex].transform.Find("0").gameObject.SetActive(false);
@@ -130,10 +180,13 @@ public class GameController : MonoBehaviour
             CharactersList[i].transform.Find("0").gameObject.SetActive(true);
             CharactersList[i].transform.Find("1").gameObject.SetActive(false);
         }
+        PlayerPrefs.SetInt("playerIndex", currentIndex);
     }
 
     public void OnDuckBtnClick()
     {
+        AudioController.Instance.PlayEfx(click);
+
         int currentIndex = 3;
         playerIndex = currentIndex.ToString();
         CharactersList[currentIndex].transform.Find("0").gameObject.SetActive(false);
@@ -146,22 +199,26 @@ public class GameController : MonoBehaviour
             CharactersList[i].transform.Find("0").gameObject.SetActive(true);
             CharactersList[i].transform.Find("1").gameObject.SetActive(false);
         }
+        PlayerPrefs.SetInt("playerIndex", currentIndex);
     }
 
     public void DailyPanel()
     {
+        AudioController.Instance.PlayEfx(click);
         dailyMission.SetActive(true);
         achieveMission.SetActive(false);
     }
 
     public void AchievePanel()
     {
+        AudioController.Instance.PlayEfx(click);
         dailyMission.SetActive(false);
         achieveMission.SetActive(true);
     }
 
     public void DisplayStory()
     {
+        AudioController.Instance.PlayEfx(click);
         storyPanel.SetActive(true);
         stylePanel.SetActive(false);
         elementPanel.SetActive(false);
@@ -169,6 +226,7 @@ public class GameController : MonoBehaviour
 
     public void DisplayStyle()
     {
+        AudioController.Instance.PlayEfx(click);
         storyPanel.SetActive(false);
         stylePanel.SetActive(true);
         elementPanel.SetActive(false);
@@ -176,6 +234,7 @@ public class GameController : MonoBehaviour
 
     public void DisplayElement()
     {
+        AudioController.Instance.PlayEfx(click);
         storyPanel.SetActive(false);
         stylePanel.SetActive(false);
         elementPanel.SetActive(true);
@@ -183,6 +242,7 @@ public class GameController : MonoBehaviour
 
     public void DisplayCoinShop()
     {
+        AudioController.Instance.PlayEfx(click);
         coinShop.SetActive(true);
         DiamondShop.SetActive(false);
         CakeShop.SetActive(false);
@@ -190,6 +250,7 @@ public class GameController : MonoBehaviour
 
     public void DisplayDiamondShop()
     {
+        AudioController.Instance.PlayEfx(click);
         coinShop.SetActive(false);
         DiamondShop.SetActive(true);
         CakeShop.SetActive(false);
@@ -197,6 +258,7 @@ public class GameController : MonoBehaviour
 
     public void DisplayCakeShop()
     {
+        AudioController.Instance.PlayEfx(click);
         coinShop.SetActive(false);
         DiamondShop.SetActive(false);
         CakeShop.SetActive(true);
@@ -204,19 +266,34 @@ public class GameController : MonoBehaviour
 
     public void OnClosePanels()
     {
-      //  for (int i = 0; i < panels.Length; i++)
-       //     panels[i].SetActive(false);
-      //  MainPanels.SetActive(true);
-        SceneManager.LoadScene("MainScene");
+        for (int i = 0; i < panels.Length; i++)
+            panels[i].SetActive(false);
+        MainPanels.SetActive(true);
+
+        //是个小bug..
+       // SceneManager.LoadScene("MainScene");
+        AudioController.Instance.PlayEfx(click);
+
     }
 
     public void OnOpenPanels()
     {
-      
+
+        if (isSound != 1)
+        {
+            GameObject.Find("bgx").GetComponent<Toggle>().isOn = false;
+        }
+
+        AudioController.Instance.PlayEfx(click);
         MainPanels.SetActive(false);
 
     }
 
+
+    public void TESTFORAUDIO()
+    {
+        AudioController.Instance.PlayEfx(click);
+    }
 
 
 
@@ -263,6 +340,7 @@ public class GameController : MonoBehaviour
     public void StartGame()
     {
 
+        AudioController.Instance.PlayEfx(click);
         PlayerPrefs.SetInt("playerIndex", int.Parse(playerIndex));
 
         switch (LEVEL)

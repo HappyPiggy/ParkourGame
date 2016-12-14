@@ -7,6 +7,9 @@ public class PlayerSwim : MonoBehaviour
 
     public float swimVelocity;
     public GoodsReward goodsReward;
+    public AudioClip coinAudio;
+    public AudioClip jumpAudio;
+    public AudioClip dieAudio;
 
 
     [HideInInspector]
@@ -28,6 +31,7 @@ public class PlayerSwim : MonoBehaviour
         if (Input.GetKey(KeyCode.Z) &&!isDead)
         {
             isSwim = true;
+            AudioController.Instance.PlayEfx(jumpAudio);
 
             if (isSwim)
             {
@@ -53,6 +57,32 @@ public class PlayerSwim : MonoBehaviour
     }
 
 
+    public void SwimStart()
+    {
+        if (!isDead)
+        {
+            isSwim = true;
+            AudioController.Instance.PlayEfx(jumpAudio);
+            if (isSwim)
+            {
+                Vector2 velocity = rb.velocity;
+                velocity.y = swimVelocity;
+                rb.velocity = velocity;
+                // print(velocity.y);
+            }
+
+        }
+    }
+
+    public void SwimEnd()
+    {
+        isSwim = false;
+        Vector2 velocity = rb.velocity;
+        velocity.y = 0;
+        rb.velocity = velocity;
+    }
+
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -66,7 +96,7 @@ public class PlayerSwim : MonoBehaviour
         {
             Debug.Log("DIE");
             isDead = true;
-            GameController3.Instance.GameOver();
+            GameOver();
             return;
         }
 
@@ -75,19 +105,30 @@ public class PlayerSwim : MonoBehaviour
         switch (other.tag)
         {
             case "Boom":
-                GameController3.Instance.GameOver();
+                GameOver();
                 break;
             case "Coin1":
+                AudioController.Instance.PlayPropSource(coinAudio);
                 GameController3.Instance.ChangeScore(goodsReward.coin1);
                 break;
             case "Coin2":
+                AudioController.Instance.PlayPropSource(coinAudio);
                 GameController3.Instance.ChangeScore(goodsReward.coin2);
                 break;
             case "Coin3":
+                AudioController.Instance.PlayPropSource(coinAudio);
                 GameController3.Instance.ChangeScore(goodsReward.coin3);
                 break;
 
         }
         Destroy(other.gameObject);
+    }
+
+
+    void GameOver()
+    {
+        AudioController.Instance.StopBgMusic();
+        AudioController.Instance.PlayDieSource(dieAudio);
+        GameController3.Instance.GameOver();
     }
 }

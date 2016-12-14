@@ -22,20 +22,23 @@ public class GameController4 : MonoBehaviour {
     public Text resDia;
     public bool isRecord = true;
 
+
+
     private TextDisplay textDisplayer;
     private CreateRoad2 createRoader;
 
 
     [HideInInspector]
     public bool isPause;
-
-    private PlayerFly player;
+         [HideInInspector]
+    public PlayerFly player;
     private int characterIndex;
     private GameObject currentPlayer;
     private float distanceSpeed;
     private float distance;
     private float Timer = 0;
     private int score;
+    private int isSound = 1;
 
     #region 单例模式
     private static GameController4 _instance;
@@ -66,6 +69,19 @@ public class GameController4 : MonoBehaviour {
         //生成主角
         currentPlayer = Instantiate(Characters[characterIndex], playerPos.transform.position, playerPos.transform.rotation) as GameObject;
         player = currentPlayer.GetComponent<PlayerFly>();
+
+        isSound = PlayerPrefs.GetInt("isSound", 1);
+
+        //判断音乐有没有打开
+        if (isSound == 1)
+        {
+            GameObject.Find("Main Camera").GetComponent<AudioListener>().enabled = true;
+        }
+        else
+        {
+
+            GameObject.Find("Main Camera").GetComponent<AudioListener>().enabled = false;
+        }
         
 	}
 
@@ -120,6 +136,11 @@ public class GameController4 : MonoBehaviour {
     }
 
 
+    public void PlayerFly()
+    {
+        player.Fly();
+    }
+
     public void ChangeScore(int changeScore)
     {
         score += changeScore;
@@ -141,9 +162,8 @@ public class GameController4 : MonoBehaviour {
 
     public void GameOver()
     {
-    
-        
-       // player.isDead = true;
+
+        player.isDead = true;
         Invoke("WaitGameOver", 0.5f);
     }
 
@@ -156,29 +176,35 @@ public class GameController4 : MonoBehaviour {
 
     public void PauseGame()
     {
+        AudioController.Instance.PlayClick();
         isPause = true;
         Time.timeScale = 0;
     }
 
     public void ReturnGame()
     {
+        AudioController.Instance.PlayClick();
         isPause = false;
         Time.timeScale = 1;
     }
 
     public void RestartGame()
     {
+        AudioController.Instance.PlayClick();
         SceneManager.LoadScene("PlayingScene2");
         Time.timeScale = 1;
     }
 
     public void ReturnMainScene()
     {
+        AudioController.Instance.PlayClick();
         SceneManager.LoadScene("MainScene");
     }
 
     public void OnReliveButtonPress()
     {
+        AudioController.Instance.PlayClick();
+        AudioController.Instance.PlayBgMusic();
         // relivePanel.SetActive(false);
         currentPlayer.transform.position = new Vector3(playerPos.transform.position.x, playerPos.transform.position.y, 0);
         currentPlayer.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 10, 0);
@@ -189,6 +215,11 @@ public class GameController4 : MonoBehaviour {
         player.isDead = false;
         Time.timeScale = 1;
 
+    }
+
+    public void PlayClickSound()
+    {
+        AudioController.Instance.PlayClick();
     }
   
 }

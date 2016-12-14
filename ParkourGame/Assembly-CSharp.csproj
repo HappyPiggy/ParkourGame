@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scrips\AudioController.cs" />
      <Compile Include="Assets\Scrips\MainScene\GameController.cs" />
      <Compile Include="Assets\Scrips\PlayingScene\Background\BackgroundMove.cs" />
      <Compile Include="Assets\Scrips\PlayingScene\Background\BackgroundScroll.cs" />
@@ -52,6 +53,7 @@
      <Compile Include="Assets\Scrips\PlayingScene\Background\CreateRoad.cs" />
      <Compile Include="Assets\Scrips\PlayingScene\GameController2.cs" />
      <Compile Include="Assets\Scrips\PlayingScene\Player\Boss.cs" />
+     <Compile Include="Assets\Scrips\PlayingScene\Player\OnButtonPressed.cs" />
      <Compile Include="Assets\Scrips\PlayingScene\Player\Player.cs" />
      <Compile Include="Assets\Scrips\PlayingScene\UI\TextDisplay.cs" />
      <Compile Include="Assets\Scrips\PlayingScene2\BoundTrigger3.cs" />
@@ -63,6 +65,7 @@
      <Compile Include="Assets\Scrips\PlayingScene3\CreateRoad2.cs" />
      <Compile Include="Assets\Scrips\PlayingScene3\EnemyMove.cs" />
      <Compile Include="Assets\Scrips\PlayingScene3\GameController3.cs" />
+     <Compile Include="Assets\Scrips\PlayingScene3\OnButtonPressed2.cs" />
      <Compile Include="Assets\Scrips\PlayingScene3\PlayerSwim.cs" />
      <Compile Include="Assets\Scrips\StartScene\StartScene.cs" />
      <Compile Include="Assets\Scrips\result.cs" />

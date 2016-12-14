@@ -9,6 +9,10 @@ public class PlayerFly : MonoBehaviour {
     [HideInInspector]
     public bool isDead;
 
+    public AudioClip coinAudio;
+    public AudioClip jumpAudio;
+    public AudioClip dieAudio;
+
 
     private Rigidbody2D rb;
 
@@ -28,6 +32,8 @@ public class PlayerFly : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Z) && !isDead)
         {
+            //播放跳的音效
+            AudioController.Instance.PlayEfx(jumpAudio);
                 Vector2 velocity = rb.velocity;
                 velocity.y = flyVelocity;
                 rb.velocity = velocity;
@@ -35,6 +41,15 @@ public class PlayerFly : MonoBehaviour {
         }
     }
 
+
+    public void Fly()
+    {
+        //播放跳的音效
+        AudioController.Instance.PlayEfx(jumpAudio);
+        Vector2 velocity = rb.velocity;
+        velocity.y = flyVelocity;
+        rb.velocity = velocity;
+    }
 
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -49,7 +64,7 @@ public class PlayerFly : MonoBehaviour {
         {
             Debug.Log("DIE");
             isDead = true;
-            GameController4.Instance.GameOver();
+            GameOver();
             return;
         }
 
@@ -58,20 +73,31 @@ public class PlayerFly : MonoBehaviour {
         switch (other.tag)
         {
             case "Boom":
-                
-                GameController4.Instance.GameOver();
+
+                GameOver();
                 break;
             case "Coin1":
+                AudioController.Instance.PlayPropSource(coinAudio);
                 GameController4.Instance.ChangeScore(goodsReward.coin1);
                 break;
             case "Coin2":
+                AudioController.Instance.PlayPropSource(coinAudio);
                 GameController4.Instance.ChangeScore(goodsReward.coin2);
                 break;
             case "Coin3":
+                AudioController.Instance.PlayPropSource(coinAudio);
                 GameController4.Instance.ChangeScore(goodsReward.coin3);
                 break;
 
         }
         Destroy(other.gameObject);
+    }
+
+
+    void GameOver()
+    {
+        AudioController.Instance.StopBgMusic();
+        AudioController.Instance.PlayDieSource(dieAudio);
+        GameController4.Instance.GameOver();
     }
 }

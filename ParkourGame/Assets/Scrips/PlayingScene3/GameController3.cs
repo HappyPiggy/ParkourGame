@@ -26,8 +26,10 @@ public class GameController3 : MonoBehaviour {
 
     public bool isRecord = true;
 
+
     [HideInInspector]
     public bool isPause;
+
 
     private float distance;
     private float distanceSpeed;
@@ -36,9 +38,10 @@ public class GameController3 : MonoBehaviour {
     private CreateRoad2 createRoader;
     private int characterIndex;
     private GameObject currentPlayer;
-    private PlayerSwim player;
+         [HideInInspector]
+    public PlayerSwim player;
     private int score;
-
+    private int isSound = 1;
 
 
     void Start()
@@ -54,6 +57,19 @@ public class GameController3 : MonoBehaviour {
         //生成主角
         currentPlayer = Instantiate(Characters[characterIndex], playerPos.transform.position, playerPos.transform.rotation) as GameObject;
         player = currentPlayer.GetComponent<PlayerSwim>();
+
+        isSound = PlayerPrefs.GetInt("isSound", 1);
+
+        //判断音乐有没有打开
+        if (isSound == 1)
+        {
+            GameObject.Find("Main Camera").GetComponent<AudioListener>().enabled = true;
+        }
+        else
+        {
+
+            GameObject.Find("Main Camera").GetComponent<AudioListener>().enabled = false;
+        }
 
     }
 
@@ -132,6 +148,16 @@ public class GameController3 : MonoBehaviour {
     }
 
 
+    public void PlayerSwimStart()
+    {
+        player.SwimStart();
+    }
+
+    public void PlayerSwimEnd()
+    {
+        player.SwimEnd();
+    }
+
     public void ChangeDistace()
     {
 
@@ -142,6 +168,7 @@ public class GameController3 : MonoBehaviour {
 
     public void GameOver()
     {
+        player.isDead = true;
         Invoke("WaitGameOver", 0.5f);
     }
 
@@ -155,6 +182,8 @@ public class GameController3 : MonoBehaviour {
 
     public void OnReliveButtonPress()
     {
+        AudioController.Instance.PlayClick();
+        AudioController.Instance.PlayBgMusic();
        // relivePanel.SetActive(false);
         currentPlayer.transform.position = new Vector3(playerPos.transform.position.x, playerPos.transform.position.y , 0);
         currentPlayer.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 1, 0);
@@ -169,23 +198,27 @@ public class GameController3 : MonoBehaviour {
 
     public void ReturnMainScene()
     {
+        AudioController.Instance.PlayClick();
         SceneManager.LoadScene("MainScene");
     }
 
     public void PauseGame()
     {
+        AudioController.Instance.PlayClick();
         isPause = true;
         Time.timeScale = 0;
     }
 
     public void ReturnGame()
     {
+        AudioController.Instance.PlayClick();
         isPause = false;
         Time.timeScale = 1;
     }
 
     public void RestartGame()
     {
+        AudioController.Instance.PlayClick();
         SceneManager.LoadScene("PlayingScene3");
         Time.timeScale = 1;
     }
@@ -193,5 +226,11 @@ public class GameController3 : MonoBehaviour {
     public void RandomCreateRoad(Vector3 targetPos)
     {
         createRoader.CreateRandomRoad(Maps, targetPos, roadOffset);
+    }
+
+
+    public void PlayClickSound()
+    {
+        AudioController.Instance.PlayClick();
     }
 }
