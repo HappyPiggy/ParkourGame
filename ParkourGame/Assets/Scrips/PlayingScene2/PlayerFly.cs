@@ -1,5 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿
+using UnityEngine;
+
 
 public class PlayerFly : MonoBehaviour {
 
@@ -101,3 +102,4 @@ public class PlayerFly : MonoBehaviour {
         GameController4.Instance.GameOver();
     }
 }
+

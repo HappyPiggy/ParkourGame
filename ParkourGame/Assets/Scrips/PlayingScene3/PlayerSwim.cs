@@ -1,6 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
-using Microsoft.Win32;
+﻿
+using UnityEngine;
+
 
 public class PlayerSwim : MonoBehaviour
 {

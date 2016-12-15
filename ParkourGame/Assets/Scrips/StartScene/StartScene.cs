@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class StartScene : MonoBehaviour
@@ -17,5 +16,11 @@ public class StartScene : MonoBehaviour
     public void OnVisitorButtonClick()
     {
         AudioController.Instance.PlayEfx(click);
+    }
+
+    public void Test()
+    {
+        print("start script");
+        AudioController.Instance.PlayClick();
     }
 }

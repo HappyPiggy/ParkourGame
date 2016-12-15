@@ -26,6 +26,8 @@ public class GameController : MonoBehaviour
     public GameObject[] CharactersList;
     public GameObject headIcon;
     public AudioClip click;
+    public GameObject bgx;
+    public GameObject camera;
 
     private string playerIndex="2";
     private int LEVEL=0;
@@ -63,17 +65,17 @@ public class GameController : MonoBehaviour
     {
 
 
-        if (GameObject.Find("bgx").GetComponent<Toggle>().isOn)
+        if (bgx.GetComponent<Toggle>().isOn)
         {
            //打开音效
             
-            GameObject.Find("Main Camera").GetComponent<AudioListener>().enabled = true;
+            camera.GetComponent<AudioListener>().enabled = true;
             PlayerPrefs.SetInt("isSound", 1);
         }
         else
         {
             //关闭音效
-            GameObject.Find("Main Camera").GetComponent<AudioListener>().enabled = false;
+           camera.GetComponent<AudioListener>().enabled = false;
             PlayerPrefs.SetInt("isSound", 0);
         }
        

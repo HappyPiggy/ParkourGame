@@ -1,8 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
-using UnityEditor;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
+﻿
+
+using UnityEngine;
 
 [System.Serializable]
 public class GoodsReward
@@ -364,3 +362,4 @@ public class Player : MonoBehaviour
 
 
 }
+

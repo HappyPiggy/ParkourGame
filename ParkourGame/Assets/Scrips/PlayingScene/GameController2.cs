@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -55,6 +54,7 @@ public class GameController2 : MonoBehaviour {
      public Text resDia;
 
      public bool isRecord = true;
+    public GameObject camera;
 
     private int score;
     private float distance;
@@ -132,12 +132,12 @@ public class GameController2 : MonoBehaviour {
         //判断音乐有没有打开
         if (isSound == 1)
         {
-            GameObject.Find("Main Camera").GetComponent<AudioListener>().enabled = true;
+            camera.GetComponent<AudioListener>().enabled = true;
         }
         else
         {
 
-            GameObject.Find("Main Camera").GetComponent<AudioListener>().enabled = false;
+            camera.GetComponent<AudioListener>().enabled = false;
         }
 
     }
@@ -164,7 +164,7 @@ public class GameController2 : MonoBehaviour {
   
 
     private void GetRecord()
-    {   
+    {       
         if (player.isDead && isRecord)
         {
 

@@ -1,5 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿
+using UnityEngine;
+
 
 public class CreateRoad2 : MonoBehaviour {
 

@@ -1,13 +1,8 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using UnityEngine.EventSystems;
-using System.Collections;
-/// <summary>  
-/// 脚本位置：UGUI按钮组件身上  
-/// 脚本功能：实现按钮长按状态的判断  
-/// 创建时间：2015年11月17日  
-/// </summary>  
 
-// 继承：按下，抬起和离开的三个接口  
+
 public class OnButtonPressed2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler
 {
 
