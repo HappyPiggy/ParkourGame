@@ -1,5 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿
+
+using UnityEngine;
+
 
 public class BackgroundScroll : MonoBehaviour {
 

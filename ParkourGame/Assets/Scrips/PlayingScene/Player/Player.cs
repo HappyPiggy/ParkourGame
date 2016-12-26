@@ -1,6 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.UI;
+﻿
+
+using UnityEngine;
 
 [System.Serializable]
 public class GoodsReward
@@ -16,27 +16,35 @@ public class Player : MonoBehaviour
 	public GoodsReward goodsReward;
     public float attackTime;
 
+    public AudioClip coinAudio;
+    public AudioClip jumpAudio;
+    public AudioClip dieAudio;
+    public AudioClip click;
+
 
     [HideInInspector]
     public bool isDead;
-//    [HideInInspector]
+    [HideInInspector]
     public float Timer;
     [HideInInspector]
     public int onGround;
     [HideInInspector]
     public bool startTimer;
-   
+    [HideInInspector]
+    public int currentKey;
+
 
 	private Animator animator;
 	private Rigidbody2D rigidbody2D;
 
-    public int currentKey;
     public bool isTouch;
     private bool isSlider;
     private bool isJump;
     private BoxCollider2D boxCollider;
     private Vector2 currentColliderSize;
     private Vector2 currentColliderOffset;
+    private GameObject runEffect;
+
 
    
 
@@ -57,10 +65,12 @@ public class Player : MonoBehaviour
 		isDead      = false;
         currentColliderOffset=new Vector2(boxCollider.offset.x,boxCollider.offset.y);
         currentColliderSize=new Vector2(boxCollider.size.x,boxCollider.size.y);
-       // attackTime = GameController2.Instance.bossTimeSlider.GetComponent<Slider>().maxValue;
-      //  Debug.Log(attackTime);
 
-  
+        runEffect = transform.FindChild("EffectPos").gameObject;
+	    // attackTime = GameController2.Instance.bossTimeSlider.GetComponent<Slider>().maxValue;
+	    //  Debug.Log(attackTime);
+
+
 	}
 
 	void Update()
@@ -73,6 +83,10 @@ public class Player : MonoBehaviour
 
 
 	}
+
+
+
+
 
 
     void AttackBoss()
@@ -94,7 +108,6 @@ public class Player : MonoBehaviour
 
         if (currentKey >= 4)
         {
-
             GameController2.Instance.BossOver();
             currentKey = 0;
             Timer = 0;
@@ -118,7 +131,8 @@ public class Player : MonoBehaviour
             else
             {
                 Debug.Log("按错键了！");
-                GameController2.Instance.GameOver();
+
+                GameOver();
             }
         }
 
@@ -139,7 +153,8 @@ public class Player : MonoBehaviour
             if (Timer >= attackTime && !isDead)
             {
                 Debug.Log("时间到了！");
-                GameController2.Instance.GameOver();
+
+                GameOver();
             }
         }
         
@@ -159,50 +174,120 @@ public class Player : MonoBehaviour
   //      GameController2.Instance.playerKeys[currentKey] = 1;
   //      isTouch                                         =true;
   //  }
-
-
-	public void PlayerMovement()
-	{
-		if (Input.GetKeyDown(KeyCode.Z) && onGround <= jumpTimes && !GameController2.Instance.isPause && !isJump)
-		{
-		    isSlider = true;
-			Vector2 velocity = rigidbody2D.velocity;
-			velocity.y = jumpVelocity;
-			rigidbody2D.velocity = velocity;
-			if (onGround >= 2)
-			{
-				animator.SetTrigger("Jump");
-			}
-			onGround++;
-        }
-       
-        
-        if (Input.GetKeyDown(KeyCode.X) && !GameController2.Instance.isPause && !isSlider)
+   public void Jump()
+    {
+        AudioController.Instance.PlayEfx(click);
+        if ( onGround <= jumpTimes && !GameController2.Instance.isPause && !isJump)
         {
-        //蹲的动画
-            animator.SetBool("Slider",true);
-          //  transform.Rotate(new Vector3(0, 0, 90));
-            boxCollider.size = new Vector2(5,1.6f);
+            //特效消除
+            runEffect.SetActive(false);
+
+            //播放跳的音效
+            AudioController.Instance.PlayEfx(jumpAudio);
+
+            isSlider = true;
+            Vector2 velocity = rigidbody2D.velocity;
+            velocity.y = jumpVelocity;
+            rigidbody2D.velocity = velocity;
+            if (onGround >= 2)
+            {
+                animator.SetTrigger("Jump");
+            }
+            onGround++;
+        }
+    }
+
+   public void SliderStart()
+    {
+        if ( !GameController2.Instance.isPause && !isSlider)
+        {
+            //蹲的动画
+            animator.SetBool("Slider", true);
+            //  transform.Rotate(new Vector3(0, 0, 90));
+            boxCollider.size = new Vector2(5, 1.6f);
             boxCollider.offset = new Vector2(0, -0.4f);
 
             //蹲的时候不能起跳
             isJump = true;
 
-        }
-
-        if (Input.GetKeyUp(KeyCode.X)) {
-            animator.SetBool("Slider", false);
-            //transform.Rotate(new Vector3(0, 0, 0));
-            //boxCollider.size = new Vector2(1.23f, 3.25f);
-            //boxCollider.offset = new Vector2(0.92f,0);
-
-            boxCollider.size = currentColliderSize;
-            boxCollider.offset = currentColliderOffset;
-
-            isJump = false;
+            //蹲的特效要改变位置
+            runEffect.SetActive(false);
 
         }
-	}
+    }
+
+
+   public void SliderEnd()
+   {
+       animator.SetBool("Slider", false);
+
+       boxCollider.size = currentColliderSize;
+       boxCollider.offset = currentColliderOffset;
+
+       isJump = false;
+
+       runEffect.SetActive(true);
+   }
+
+
+
+
+   public void PlayerMovement()
+   {
+       if (Input.GetKeyDown(KeyCode.Z) && onGround <= jumpTimes && !GameController2.Instance.isPause && !isJump)
+       {
+           //特效消除
+           runEffect.SetActive(false);
+           AudioController.Instance.PlayEfx(jumpAudio);
+
+           isSlider = true;
+           Vector2 velocity = rigidbody2D.velocity;
+           velocity.y = jumpVelocity;
+           rigidbody2D.velocity = velocity;
+           if (onGround >= 2)
+           {
+               animator.SetTrigger("Jump");
+           }
+           onGround++;
+       }
+
+
+       if (Input.GetKeyDown(KeyCode.X) && !GameController2.Instance.isPause && !isSlider)
+       {
+
+           //蹲的动画
+           animator.SetBool("Slider", true);
+           //  transform.Rotate(new Vector3(0, 0, 90));
+           boxCollider.size = new Vector2(5, 1.6f);
+           boxCollider.offset = new Vector2(0, -0.4f);
+
+           //蹲的时候不能起跳
+           isJump = true;
+
+           //蹲的特效要改变位置
+           runEffect.SetActive(false);
+
+       }
+
+       if (Input.GetKeyUp(KeyCode.X))
+       {
+
+
+
+           animator.SetBool("Slider", false);
+           //transform.Rotate(new Vector3(0, 0, 0));
+           //boxCollider.size = new Vector2(1.23f, 3.25f);
+           //boxCollider.offset = new Vector2(0.92f,0);
+
+           boxCollider.size = currentColliderSize;
+           boxCollider.offset = currentColliderOffset;
+
+           isJump = false;
+
+           runEffect.SetActive(true);
+
+       }
+   }
 
 	private void OnCollisionEnter2D(Collision2D col)
 	{
@@ -214,7 +299,13 @@ public class Player : MonoBehaviour
         //碰到地时才可以下蹲
 	    isSlider = false;
 
+        if(!isJump)
+            runEffect.SetActive(true);
+
 	}
+
+
+
 
 
 
@@ -225,7 +316,8 @@ public class Player : MonoBehaviour
         {
            Debug.Log("DIE");
             isDead = true;
-            GameController2.Instance.GameOver();
+
+            GameOver();
         }
 
 
@@ -237,19 +329,22 @@ public class Player : MonoBehaviour
 		switch (other.tag)
 		{
 			case "Coin1":
+                AudioController.Instance.PlayPropSource(coinAudio);
 				GameController2.Instance.ChangeScore(goodsReward.coin1);
 				break;
 			case "Coin2":
+                AudioController.Instance.PlayPropSource(coinAudio);
 				GameController2.Instance.ChangeScore(goodsReward.coin2);
 				break;
 			case "Coin3":
+                AudioController.Instance.PlayPropSource(coinAudio);
 				GameController2.Instance.ChangeScore(goodsReward.coin3);
 				break;
             case "Snake":
-                GameController2.Instance.GameOver();
+		        GameOver();
                 break;
             case "Boom":
-                GameController2.Instance.GameOver();
+		        GameOver();
                 break;
 
 		}
@@ -257,4 +352,14 @@ public class Player : MonoBehaviour
 	
 
 	}
+
+    void GameOver()
+    {
+        AudioController.Instance.StopBgMusic();
+        AudioController.Instance.PlayDieSource(dieAudio);
+        GameController2.Instance.GameOver();
+    }
+
+
 }
+

@@ -1,5 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿
+using UnityEngine;
+
 
 public class CreateRoad : MonoBehaviour
 {
@@ -22,4 +23,4 @@ public class CreateRoad : MonoBehaviour
     }
 
 }
-  
+

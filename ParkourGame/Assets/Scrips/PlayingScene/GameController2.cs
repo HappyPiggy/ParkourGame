@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -27,6 +26,7 @@ public class GameController2 : MonoBehaviour {
   //  public Transform bossHomePos;
     public int firstBossDistance;
     public int bossDistance;
+
    // public int bossRoadDistance;
 
     [HideInInspector]
@@ -46,6 +46,16 @@ public class GameController2 : MonoBehaviour {
      [HideInInspector]
     public Player player;
 
+
+     public Text resDistance;
+     public Text resScore;
+
+     public Text resCoin;
+     public Text resDia;
+
+     public bool isRecord = true;
+    public GameObject camera;
+
     private int score;
     private float distance;
     private float Timer = 0;
@@ -56,7 +66,7 @@ public class GameController2 : MonoBehaviour {
     private bool bossIsAppear;
     private int characterIndex;
     private GameObject currentPlayer;
-
+    private int isSound = 1;
 
     
     
@@ -104,7 +114,7 @@ public class GameController2 : MonoBehaviour {
         //确定选择的角色
          characterIndex = PlayerPrefs.GetInt("playerIndex", 0);
 
-         // characterIndex = 3;
+        //  characterIndex = 3;
 
         //生成主角
        currentPlayer= Instantiate(Characters[characterIndex], playerPos.transform.position, playerPos.transform.rotation) as GameObject;
@@ -116,6 +126,20 @@ public class GameController2 : MonoBehaviour {
         bossTimeSlider.GetComponent<Slider>().value = player.attackTime;
         UpdateSpeed();
         InitBossSettings();
+
+        isSound = PlayerPrefs.GetInt("isSound", 1);
+
+        //判断音乐有没有打开
+        if (isSound == 1)
+        {
+            camera.GetComponent<AudioListener>().enabled = true;
+        }
+        else
+        {
+
+            camera.GetComponent<AudioListener>().enabled = false;
+        }
+
     }
 
 
@@ -130,39 +154,78 @@ public class GameController2 : MonoBehaviour {
             AutoChangeSpeed();
         }
 
-    //  Debug.Log("实际值"+bossRoadGenerate);
 
+        //获得奖励结果
+        //GetRecord();
         
+    }
+
+
+  
+
+    private void GetRecord()
+    {       
+        if (player.isDead && isRecord)
+        {
+
+            resDistance.text = distance.ToString();
+            resScore.text =score.ToString();
+
+            resCoin.text = (score*3f + distance*2f).ToString();
+            resDia.text = Random.Range(1, 10).ToString();
+;
+            isRecord = false;
+        }
     }
 
     #region 按钮事件
 
+    public void PlayerJump()
+    {
+        player.Jump();
+    }
+
+    public void PlayerSliderStart()
+    {
+        player.SliderStart();
+    }
+
+    public void PlayerSliderEnd()
+    {
+        player.SliderEnd();
+    }
      public void PauseGame()
     {
+
+        AudioController.Instance.PlayClick();
         isPause        = true;
         Time.timeScale = 0;
     }
 
     public void ReturnGame()
     {
+        AudioController.Instance.PlayClick();
         isPause        = false;
         Time.timeScale = 1;
     }
 
     public void RestartGame()
     {
+        AudioController.Instance.PlayClick();
         SceneManager.LoadScene("PlayingScene");
         Time.timeScale = 1;
     }
 
     public void ReturnMainScene()
     {
+        AudioController.Instance.PlayClick();
         SceneManager.LoadScene("MainScene");
     }
 
     public void GameOver()
     {
         player.isDead = true;
+        GetRecord();
         directionButtons.SetActive(false);
         Invoke("WaitGameOver", 0.5f);
     }
@@ -178,13 +241,16 @@ public class GameController2 : MonoBehaviour {
 
     public void OnReliveButtonPress()
     {
-       
+
+        AudioController.Instance.PlayClick();
+       AudioController.Instance.PlayBgMusic();
         //currentPlayer =Instantiate(Characters[characterIndex], playerPos.transform.position, playerPos.transform.rotation) as GameObject;
         //player = currentPlayer.GetComponent<Player>();
         currentPlayer.transform.position = new Vector3(playerPos.transform.position.x,playerPos.transform.position.y+3,0);
         currentPlayer.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 10, 0);
       //  print(playerPos.transform.position);
         player.Timer = 0;
+        isRecord = true;
         isPause = false;
        // player.transform.position = new Vector3(player.transform.position.x, 5, player.transform.position.z);
        // Instantiate(Characters[characterIndex], playerPos.transform.position, playerPos.transform.rotation);
@@ -208,7 +274,10 @@ public class GameController2 : MonoBehaviour {
     #endregion
 
     #region UI相关
-  
+    public void EnterKey()
+    {
+        AudioController.Instance.PlayClick();
+    }
 
     public void ChangeDistace()
     {

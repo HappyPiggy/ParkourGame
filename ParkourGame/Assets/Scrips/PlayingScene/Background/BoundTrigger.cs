@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using System.Collections;
 
 public class BoundTrigger : MonoBehaviour {
@@ -34,7 +35,7 @@ public class BoundTrigger : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-      //  
+
         if (other.name=="FirstRoad")
         {
             //计算后继Road的位置
@@ -52,8 +53,8 @@ public class BoundTrigger : MonoBehaviour {
         }
         else if (other.name == "BOSSROAD")//else if (other.name == "BossRoad(Clone)")
         {
-           // Debug.Log("test");
-            Vector3 targetPos = new Vector3(other.transform.parent.position.x+16, -3, 0);
+
+            Vector3 targetPos = new Vector3(other.transform.parent.position.x+12, -3, 0);
             if (!GameController2.Instance.bossRoadGenerate)
                 targetPos = new Vector3(other.transform.parent.position.x + 20, -3, 0);
            // Debug.Log(targetPos);

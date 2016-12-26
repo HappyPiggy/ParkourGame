@@ -1,5 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿
+using UnityEngine;
+
 
 public class BackgroundMove : MonoBehaviour {
 
@@ -11,3 +12,4 @@ public class BackgroundMove : MonoBehaviour {
 
     }
 }
+
