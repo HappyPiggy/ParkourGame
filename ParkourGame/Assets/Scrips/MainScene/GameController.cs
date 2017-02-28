@@ -29,6 +29,8 @@ public class GameController : MonoBehaviour
     public GameObject bgx;
     public GameObject camera;
 
+    public GameObject[] items;
+
     private string playerIndex="2";
     private int LEVEL=0;
 
@@ -82,6 +84,76 @@ public class GameController : MonoBehaviour
     }
 
     #region UI界面设置
+
+
+    public void ChangeScale1()
+    {
+        int index = 0;
+        items[index].GetComponent<RectTransform>().localScale = new Vector3(2.8f, 2.8f, 0);
+        for (int i = 0; i < 5; i++)
+        {
+            if (i == index)
+            {
+                continue;
+            }
+                
+            
+            items[i].GetComponent<RectTransform>().localScale = new Vector3(2.4f, 2.4f, 0);
+        }
+    }
+
+
+    public void ChangeScale2()
+    {
+        int index = 1;
+        items[index].GetComponent<RectTransform>().localScale = new Vector3(2.8f, 2.8f, 0);
+        for (int i = 0; i < 5; i++)
+        {
+
+            if (i == index)
+                continue;
+            items[i].GetComponent<RectTransform>().localScale = new Vector3(2.4f, 2.4f, 0);
+        }
+    }
+
+    public void ChangeScale3()
+    {
+        int index = 2;
+        items[index].GetComponent<RectTransform>().localScale = new Vector3(2.8f, 2.8f, 0);
+        for (int i = 0; i < 5; i++)
+        {
+
+            if (i == index)
+                continue;
+            items[i].GetComponent<RectTransform>().localScale = new Vector3(2.4f, 2.4f, 0);
+        }
+    }
+
+    public void ChangeScale4()
+    {
+        int index = 3;
+        items[index].GetComponent<RectTransform>().localScale = new Vector3(2.8f, 2.8f, 0);
+        for (int i = 0; i < 5; i++)
+        {
+
+            if (i == index)
+                continue;
+            items[i].GetComponent<RectTransform>().localScale = new Vector3(2.4f, 2.4f, 0);
+        }
+    }
+
+    public void ChangeScale5()
+    {
+        int index = 4;
+        items[index].GetComponent<RectTransform>().localScale = new Vector3(2.8f, 2.8f, 0);
+        for (int i = 0; i < 5; i++)
+        {
+
+            if (i == index)
+                continue;
+            items[i].GetComponent<RectTransform>().localScale = new Vector3(2.4f, 2.4f, 0);
+        }
+    }
 
 
     public void RefreshCharacterSelected()
@@ -272,6 +344,12 @@ public class GameController : MonoBehaviour
             panels[i].SetActive(false);
         MainPanels.SetActive(true);
 
+
+        for (int i = 0; i < 5; i++)
+        {
+
+            items[i].GetComponent<RectTransform>().localScale = new Vector3(2.4f, 2.4f, 0);
+        }
         //是个小bug..
        // SceneManager.LoadScene("MainScene");
         AudioController.Instance.PlayEfx(click);
